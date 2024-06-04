@@ -11,7 +11,7 @@ namespace SpeedCalculatorApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult CalculateSpeed(double time, double distance)
+        public IActionResult Result(double time, double distance)
         {
             if (time == 0)
             {

@@ -23,5 +23,10 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+// Map route for SpeedFunctionController
+app.MapControllerRoute(
+    name: "SpeedResult",
+    pattern: "speed/result",
+    defaults: new { controller = "SpeedFunction", action = "Result" }
+);
 app.Run();
