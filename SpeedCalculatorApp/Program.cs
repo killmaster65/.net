@@ -25,8 +25,8 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 // Map route for SpeedFunctionController
 app.MapControllerRoute(
-    name: "SpeedResult",
-    pattern: "speed/result",
-    defaults: new { controller = "SpeedFunction", action = "Result" }
+    name: "SpeedFunction",
+    pattern: "speed/{function}/{*any}", // Use {*any} for remaining segments
+    defaults: new { controller = "SpeedFunction", action = "calculateSpeed" }
 );
 app.Run();
