@@ -23,5 +23,22 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(
+    name: "SpeedResult",
+    pattern: "Speed/Result",
+    defaults: new  {controller= "SpeedFunction", action = "Result"}
+    );
+
+app.MapControllerRoute(
+    name: "DisResult",
+    pattern: "Dis/Result",
+    defaults: new  {controller= "SpeedFunction", action = "Dis"}
+    );
+
+app.MapControllerRoute(
+    name: "TimeResult",
+    pattern: "Time/Result",
+    defaults: new  {controller= "SpeedFunction", action = "Time"}
+    );
 
 app.Run();

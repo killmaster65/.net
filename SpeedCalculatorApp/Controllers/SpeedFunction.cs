@@ -4,24 +4,29 @@ namespace SpeedCalculatorApp.Controllers
 {
     public class SpeedFunction : Controller
     {
-        [HttpGet]
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult CalculateSpeed(double time, double distance)
+        
+        public IActionResult Result(double time, double distance)
         {
             if (time == 0)
             {
                 ViewBag.Error = "Time cannot be zero.";
-                return View("Index");
+                return View("Speed");
             }
 
             double speed = distance / time;
             ViewBag.Speed = speed;
+            
             return View("Result");
+            
+        }
+
+        public IActionResult Dis(double Speed, double Time){
+
+
+            double distance = Speed * Time;
+            ViewBag.Dis = distance;
+            return View("Dis");
+            
         }
     }
 }

@@ -20,3 +20,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+.Box {
+  text-align: center;
+  border-color: black;
+  border: solid thick;
+  display: inline-block;
+}
