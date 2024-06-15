@@ -26,6 +26,18 @@ public class HomeController : Controller
     {
         return View();
     }
+    [HttpPost]
+    public IActionResult VelocityResults(VelocityProblem problem)
+    {
+        if (ModelState.IsValid) // Check for valid data
+    {
+        problem.Speed = problem.Distance / problem.Time; // Calculate speed
+        return View("VelocityResults", problem); // Pass model to result view
+    }
+    return View("Velocity"); // Redirect back to page on error
+    }
+
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

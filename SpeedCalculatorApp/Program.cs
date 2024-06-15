@@ -31,8 +31,8 @@ app.MapControllerRoute(
 );
 app.MapControllerRoute(
     name: "Velocity",
-    pattern: "Velocity/VelocityResults/{*any}", // Use {*any} for remaining segments
-    defaults: new { controller = "Velocity", action = "VelocityResults" }
+    pattern: "Home/{function}/{*any}", // Use {*any} for remaining segments
+    defaults: new { controller = "Home", action = "VelocityResults" }
 );
 
 app.Run();
