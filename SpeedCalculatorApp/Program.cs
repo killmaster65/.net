@@ -29,4 +29,10 @@ app.MapControllerRoute(
     pattern: "speed/{function}/{*any}", // Use {*any} for remaining segments
     defaults: new { controller = "SpeedFunction", action = "calculateSpeed" }
 );
+app.MapControllerRoute(
+    name: "Velocity",
+    pattern: "Velocity/VelocityResults/{*any}", // Use {*any} for remaining segments
+    defaults: new { controller = "Velocity", action = "VelocityResults" }
+);
+
 app.Run();

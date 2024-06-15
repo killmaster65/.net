@@ -1,0 +1,13 @@
+@model VelocityProblem // Specify the model for the view
+
+<title>Speed Solver - Results</title>
+
+<form asp-action="VelocityResults" method="post">
+    <label for="time">Time (in seconds):</label>
+    <input type="number" step="any" id="time" name="Time" />
+    <br />
+    <label for="distance">Distance (in meters):</label>
+    <input type="number" step="any" id="distance" name="Distance" />
+    <br />
+    <button type="submit">Calculate Velocity</button>
+</form>

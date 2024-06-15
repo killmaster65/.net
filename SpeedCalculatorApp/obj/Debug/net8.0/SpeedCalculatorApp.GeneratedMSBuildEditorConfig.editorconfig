@@ -22,6 +22,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/workspaces/.net/SpeedCalculatorApp/Views/Home/Velocity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9WZWxvY2l0eS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/workspaces/.net/SpeedCalculatorApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -36,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/workspaces/.net/SpeedCalculatorApp/Views/SpeedFunction/Result.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3BlZWRGdW5jdGlvbi9SZXN1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/workspaces/.net/SpeedCalculatorApp/Views/Velocity/VelocityResults.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVmVsb2NpdHkvVmVsb2NpdHlSZXN1bHRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/workspaces/.net/SpeedCalculatorApp/Views/_ViewImports.cshtml]
