@@ -2,7 +2,7 @@
     ViewData["Title"] = "Speed Calculator";
 }
 
-@model Forms.Models.SetVari
+@model Forms.Models.ConversionModel
 
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
 
@@ -15,32 +15,58 @@
         
         <h4> Calculate Speed (Distance/Time)</h4>
         <form method="post" action="/Speed/Result" >
-                <label for="time">Time:    </label>
-                <input type="number" id="time" name="time" required><br>
-                <label for="distance">Distance:</label>
-                <input type="number" id="distance" name="distance" required><br>
+                <label for="time">Time (SEC):</label>
+                <input type="number" id="time" name="time" required>
+                <label for="TimeUnit">Time Unit:</label>
+                <select id="TimeUnit" name="TimeUnit">
+                        <option value="seconds">Seconds</option>
+                        <option value="minutes">Minutes</option>
+                        <option value="hours">Hours</option>
+                </select><br>
+                <label for="Distance">Distance:</label>
+                <input type="number" id="Distance" name="Distance" required>
+                <select id="DisUnit" name="DisUnit">
+                        <option value="meter">Meter</option>
+                        <option value="centimeter">Centimeter</option>
+                        <option value="millimeter">Millimeter</option>
+                        <option value="kilometer">Kilometer</option>
+                </select><br>
                 <button type="submit">Calculate Speed</button>
         </form>
 </Div>
-<br>
+
 <Div class=Box>
         
         <h4> Calculate Time (Distance/Speed)</h4>
         <form method="post" action="/Time/Result">
                 <label for="Speed">Speed:</label>
-                <input type="number" id="Speed" name="Speed" required><br>
-                <label for="distance">Distance:</label>
-                <input type="number" id="distance" name="distance" required><br>
+                <input type="number" id="Speed" name="Speed" required>
+                
+                <br>
+                <label for="Dstance">Distance:</label>
+                <input type="number" id="Distance" name="Distance" required>
+                <select id="DisUnit" name="DisUnit">
+                        <option value="meter">Meter</option>
+                        <option value="centimeter">Centimeter</option>
+                        <option value="millimeter">Millimeter</option>
+                        <option value="kilometer">Kilometer</option>
+                </select><br>
                 <button type="submit">Calculate Time</button>
         </form>
 </Div>
-<br>
+
 <div class=Box>
 
         <h4>Calculate Distance (Speed*Time)</h4>
         <form method="post" action="/Dis/Result" >
-                <label for="time">Time: </label>
-                <input type="number" id="time" name="time" required><br>
+                <label for="Time">Time: </label>
+                <input type="number" id="Time" name="Time" required>
+                <label for="TimeUnit">Time Unit:</label>
+                <select id="TimeUnit" name="TimeUnit">
+                        <option value="seconds">Seconds</option>
+                        <option value="minutes">Minutes</option>
+                        <option value="hours">Hours</option>
+                </select><br>
                 <label for="Speed">Speed:</label>
                 <input type="number" id="Speed" name="Speed" required><br>
                 <button type="submit">Calculate Distance</button>
