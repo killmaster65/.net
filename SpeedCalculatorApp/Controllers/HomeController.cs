@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Forms.Models;
 using Microsoft.AspNetCore.Mvc;
 using SpeedCalculatorApp.Models;
 
@@ -22,19 +23,26 @@ public class HomeController : Controller
     {
         return View();
     }
-    public IActionResult Result()
+    public IActionResult Result(ConversionModel problem)
     {
         return View();
     }
-    public IActionResult Dis()
+    public IActionResult Dis(ConversionModel problem)
     {
         return View();
     }
-    public IActionResult Time()
+    public IActionResult Time(ConversionModel problem)
     {
         return View();
     }
-
+    public IActionResult KenticEnergy()
+    {
+        return View();
+    }
+    public IActionResult KEResult()
+    {
+        return View();
+    }
 
 
 

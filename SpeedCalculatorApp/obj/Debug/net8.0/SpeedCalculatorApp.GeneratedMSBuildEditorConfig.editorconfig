@@ -22,8 +22,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/workspaces/.net/SpeedCalculatorApp/Views/Home/KenticEnergy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9LZW50aWNFbmVyZ3kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/workspaces/.net/SpeedCalculatorApp/Views/Home/Speed.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9TcGVlZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/workspaces/.net/SpeedCalculatorApp/Views/KEFunction/KEResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS0VGdW5jdGlvbi9LRVJlc3VsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/workspaces/.net/SpeedCalculatorApp/Views/Shared/Error.cshtml]

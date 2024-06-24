@@ -25,20 +25,28 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapControllerRoute(
     name: "SpeedResult",
-    pattern: "Speed/Result",
+    pattern: "Result",
     defaults: new  {controller= "SpeedFunction", action = "Result"}
     );
 
 app.MapControllerRoute(
     name: "DisResult",
-    pattern: "Dis/Result",
+    pattern: "SpeedFunction/Dis",
     defaults: new  {controller= "SpeedFunction", action = "Dis"}
     );
 
 app.MapControllerRoute(
+    name: "KEResult",
+    pattern: "KineticEnergy/KEResult",
+    defaults: new  {controller= "KEFunction", action = "KEResult"}
+    );
+
+app.MapControllerRoute(
     name: "TimeResult",
-    pattern: "Time/Result",
+    pattern: "SpeedFunction/Time",
     defaults: new  {controller= "SpeedFunction", action = "Time"}
     );
+
+
 
 app.Run();

@@ -14,18 +14,18 @@
 <Div class=Box>
         
         <h4> Calculate Speed (Distance/Time)</h4>
-        <form method="post" action="/Speed/Result" >
+        <form method="post" asp-action="Result"  asp-controller="SpeedFunction" >
                 <label for="time">Time (SEC):</label>
-                <input type="number" id="time" name="time" required>
+                <input type="number" id="time" asp-for="Time" required>
                 <label for="TimeUnit">Time Unit:</label>
-                <select id="TimeUnit" name="TimeUnit">
+                <select id="TimeUnit"  asp-for="TimeUnit">
                         <option value="seconds">Seconds</option>
                         <option value="minutes">Minutes</option>
                         <option value="hours">Hours</option>
                 </select><br>
                 <label for="Distance">Distance:</label>
-                <input type="number" id="Distance" name="Distance" required>
-                <select id="DisUnit" name="DisUnit">
+                <input type="number" id="Distance"  asp-for="Distance" required>
+                <select id="DisUnit"  asp-for="DisUnit">
                         <option value="meter">Meter</option>
                         <option value="centimeter">Centimeter</option>
                         <option value="millimeter">Millimeter</option>
@@ -38,14 +38,18 @@
 <Div class=Box>
         
         <h4> Calculate Time (Distance/Speed)</h4>
-        <form method="post" action="/Time/Result">
+        <form method="post" asp-action="Time"  asp-controller="SpeedFunction" >
                 <label for="Speed">Speed:</label>
-                <input type="number" id="Speed" name="Speed" required>
-                
-                <br>
+                <input type="number" id="Speed"  asp-for="Speed" required>
+                <select id="SpeedUnit"  asp-for="SpeedUnit">
+                        <option value="meter per second">Meter per Second</option>
+                        <option value="miles per hour">Miles per hour</option>
+                        <option value="kilometers per hour">Kilometers per hour</option>
+                        <option value="feet per second">Feet per second</option>
+                </select><br>
                 <label for="Dstance">Distance:</label>
-                <input type="number" id="Distance" name="Distance" required>
-                <select id="DisUnit" name="DisUnit">
+                <input type="number" id="Distance"  asp-for="Distance" required>
+                <select id="DisUnit"  asp-for="DisUnit">
                         <option value="meter">Meter</option>
                         <option value="centimeter">Centimeter</option>
                         <option value="millimeter">Millimeter</option>
@@ -58,17 +62,23 @@
 <div class=Box>
 
         <h4>Calculate Distance (Speed*Time)</h4>
-        <form method="post" action="/Dis/Result" >
+        <form method="post" asp-action="Dis" asp-controller="SpeedFunction" >
                 <label for="Time">Time: </label>
-                <input type="number" id="Time" name="Time" required>
+                <input type="number" id="Time"  asp-for="Time" required>
                 <label for="TimeUnit">Time Unit:</label>
-                <select id="TimeUnit" name="TimeUnit">
+                <select id="TimeUnit"  asp-for="TimeUnit">
                         <option value="seconds">Seconds</option>
                         <option value="minutes">Minutes</option>
                         <option value="hours">Hours</option>
                 </select><br>
                 <label for="Speed">Speed:</label>
-                <input type="number" id="Speed" name="Speed" required><br>
+                <input type="number" id="Speed"  asp-for="Speed" required>
+                 <select id="SpeedUnit"  asp-for="SpeedUnit">
+                        <option value="meter per second">Meter per Second</option>
+                        <option value="miles per hour">Miles per hour</option>
+                        <option value="kilometers per hour">Kilometers per hour</option>
+                        <option value="feet per second">Feet per second</option>
+                </select><br>
                 <button type="submit">Calculate Distance</button>
         </form>
 </div>

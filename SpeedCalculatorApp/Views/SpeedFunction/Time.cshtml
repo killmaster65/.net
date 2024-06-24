@@ -1,3 +1,5 @@
+@model Forms.Models.ConversionModel
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +9,7 @@
 </head>
 <body>
     <h1>Speed Result</h1>
-    <p>The calculated Time is: @ViewBag.Time</p>
+    <p>The calculated Time is: @Model.Time </p>
     <a href="/Home/Speed">Back</a>
 </body>
 </html>
