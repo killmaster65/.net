@@ -1,7 +1,4 @@
-@{
-    ViewData["Title"] = "History";
-}
-
+@using Forms.Models
 @model List<ConversionModel>
 
 <div class="text-center">
@@ -10,25 +7,26 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Time</th>
-                <th>Speed</th>
+                <th>Problem ID</th>
                 <th>Distance</th>
+                <th>Distance Unit</th>
+                <th>Time</th>
+                <th>Time Unit</th>
+                <th>Speed</th>
+                <th>Speed Unit</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var ConversionModel in problem)
+            @foreach (var conversionModel in Model)
             {
                 <tr>
-                    <td>
-                        @ConversionModel.Time
-                    </td>
-                    <td>
-                        @ConversionModel.Speed
-                    </td>
-                    <td>
-                        @ConversionModel.Distance
-                    </td>
-                    
+                    <td>@conversionModel.ProblemID</td>
+                    <td>@conversionModel.Distance</td>
+                    <td>@conversionModel.DisUnit</td>
+                    <td>@conversionModel.Time</td>
+                    <td>@conversionModel.TimeUnit</td>
+                    <td>@conversionModel.Speed</td>
+                    <td>@conversionModel.SpeedUnit</td>
                 </tr>
             }
         </tbody>

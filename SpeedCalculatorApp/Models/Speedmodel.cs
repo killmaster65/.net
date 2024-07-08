@@ -1,53 +1,61 @@
-namespace Forms.Models{
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
-
-public class ConversionModel
+namespace Forms.Models
 {
-    public double Distance { get; set; }
-    public double Time { get; set; }
-    public required string TimeUnit { get; set; }
-    public required string DisUnit { get; set; }
-    public double Speed { get; set; }
-    public required string SpeedUnit { get; set; }
+    // Define the model
+    public class ConversionModel
+    {
+        public int ProblemID { get; set; }
+        public double Distance { get; set; }
+        public double Time { get; set; }
+        public string TimeUnit { get; set; } = string.Empty;
+        public string DisUnit { get; set; } = string.Empty;
+        public double Speed { get; set; }
+        public string SpeedUnit { get; set; } = string.Empty;
 
         public void ConvertTime()
-    {
-        if (TimeUnit == "minutes")
         {
-            Time *= 60;
+            if (TimeUnit == "minutes")
+            {
+                Time *= 60;
+            }
+            else if (TimeUnit == "hours")
+            {
+                Time *= 3600;
+            }
+            else if (TimeUnit == "seconds")
+            {
+                Time *= 1;
+            }
         }
-        else if (TimeUnit == "hours")
-        {
-            Time *= 3600;
-        }
-        else if (TimeUnit =="seconds")
-        {
-            Time *=1;
-        }
-    }
 
-    public void ConvertDistance()
-    {
-        if (DisUnit == "meters")
+        public void ConvertDistance()
         {
-            Distance *= 1;
+            if (DisUnit == "meters")
+            {
+                Distance *= 1;
+            }
+            else if (DisUnit == "centimeter")
+            {
+                Distance /= 100;
+            }
+            else if (DisUnit == "millimeter")
+            {
+                Distance /= 1000;
+            }
+            else if (DisUnit == "kilometer")
+            {
+                Distance *= 1000;
+            }
+            DisUnit = "meters";
         }
-        else if (DisUnit == "centimeter")
+
+        public void ConvertSpeed()
         {
-            Distance /= 100;
-        }
-        else if (DisUnit == "millimeter")
-        {
-            Distance /= 1000;
-        }
-        else if (DisUnit == "kilometer")
-        {
-            Distance *= 1000;
-        }
-        DisUnit = "meters";
-    }
-    public void ConvertSpeed()
-    {
             if (SpeedUnit == "meters per second")
             {
                 Speed *= 1;
@@ -64,27 +72,68 @@ public class ConversionModel
             {
                 Speed *= 0.3048; // 1 ft/s = 0.3048 m/s
             }
-    }
-           
+        }
 
-    public void CalculateSpeed()
-    {
-        Speed = Distance / Time;
+        public void CalculateSpeed()
+        {
+            Speed = Distance / Time;
+        }
+
+        public void CalculateDis()
+        {
+            Distance = Speed * Time;
+        }
+
+        public void CalculateTime()
+        {
+            Time = Distance / Speed;
+        }
     }
-    public void CalculateDis()
+
+    // Define the DbContext
+    public class ConversionModelDbContext : DbContext
     {
-        Distance = Speed * Time;
+        public DbSet<ConversionModel> ConversionModels { get; set; }
+
+        public ConversionModelDbContext(DbContextOptions<ConversionModelDbContext> options)
+            : base(options)
+        {
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("YourConnectionString");
+            }
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ConversionModel>(entity =>
+            {
+                entity.HasKey(e => e.ProblemID);
+                entity.Property(e => e.TimeUnit).IsRequired();
+                entity.Property(e => e.DisUnit).IsRequired();
+                entity.Property(e => e.SpeedUnit).IsRequired();
+            });
+        }
     }
-    public void CalculateTime()
+
+    // Example service or repository class that interacts with the DbContext
+    public class ConversionService
     {
-        Time = Distance/Speed;
+        private readonly ConversionModelDbContext _context;
+
+        public ConversionService(ConversionModelDbContext context)
+        {
+            _context = context;
+        }
+
+        public List<ConversionModel> GetAllProblems()
+        {
+            return _context.ConversionModels.ToList();
+        }
     }
-    public class CalculationResult
-{
-    public int Id { get; set; }
-    public double Value { get; set; }
-    // Add other properties as needed
-}
-}
 
 }

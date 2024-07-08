@@ -1,11 +1,11 @@
-using conversionmodel.Models;
+using Forms.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ConversionmodelDbcontext>(options => 
+builder.Services.AddDbContext<ConversionModelDbContext>(options => 
     options.UseInMemoryDatabase("historyDb")
 );
 var app = builder.Build();
