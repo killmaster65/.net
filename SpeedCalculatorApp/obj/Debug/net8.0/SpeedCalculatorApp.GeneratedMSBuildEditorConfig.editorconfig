@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /workspaces/.net/SpeedCalculatorApp
 build_property._RazorSourceGeneratorDebug = 
 
+[/workspaces/.net/SpeedCalculatorApp/Views/Home/history.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9oaXN0b3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/workspaces/.net/SpeedCalculatorApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

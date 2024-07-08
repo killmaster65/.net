@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SpeedCalculatorApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6004dc95aeabdf27a625b0bde51562f8ceea3b9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+653064c64cf88e2661b4d95a3fa65c57a6be4850")]
 [assembly: System.Reflection.AssemblyProductAttribute("SpeedCalculatorApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SpeedCalculatorApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

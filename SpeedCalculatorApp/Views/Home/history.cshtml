@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "History";
+}
+
+@model List<ConversionModel>
+
+<div class="text-center">
+    <h1 class="display-4">History</h1>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Speed</th>
+                <th>Distance</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ConversionModel in problem)
+            {
+                <tr>
+                    <td>
+                        @ConversionModel.Time
+                    </td>
+                    <td>
+                        @ConversionModel.Speed
+                    </td>
+                    <td>
+                        @ConversionModel.Distance
+                    </td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -44,6 +44,7 @@ public class ConversionModel
         {
             Distance *= 1000;
         }
+        DisUnit = "meters";
     }
     public void ConvertSpeed()
     {
@@ -78,6 +79,12 @@ public class ConversionModel
     {
         Time = Distance/Speed;
     }
+    public class CalculationResult
+{
+    public int Id { get; set; }
+    public double Value { get; set; }
+    // Add other properties as needed
+}
 }
 
 }
