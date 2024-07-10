@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Forms.Models
 {
@@ -19,121 +15,81 @@ namespace Forms.Models
 
         public void ConvertTime()
         {
-            if (TimeUnit == "minutes")
+            if (TimeUnit == "Minutes")
             {
                 Time *= 60;
             }
-            else if (TimeUnit == "hours")
+            else if (TimeUnit == "Hours")
             {
                 Time *= 3600;
             }
-            else if (TimeUnit == "seconds")
+            else if (TimeUnit == "Seconds")
             {
                 Time *= 1;
             }
+            TimeUnit = "Seconds";
         }
 
         public void ConvertDistance()
         {
-            if (DisUnit == "meters")
+            if (DisUnit == "Meters")
             {
                 Distance *= 1;
             }
-            else if (DisUnit == "centimeter")
+            else if (DisUnit == "Centimeter")
             {
                 Distance /= 100;
             }
-            else if (DisUnit == "millimeter")
+            else if (DisUnit == "Millimeter")
             {
                 Distance /= 1000;
             }
-            else if (DisUnit == "kilometer")
+            else if (DisUnit == "Kilometer")
             {
                 Distance *= 1000;
             }
-            DisUnit = "meters";
+            DisUnit = "Meters";
         }
 
         public void ConvertSpeed()
         {
-            if (SpeedUnit == "meters per second")
+            if (SpeedUnit == "Meters per second")
             {
                 Speed *= 1;
             }
-            else if (SpeedUnit == "kilometers per hour")
+            else if (SpeedUnit == "Kilometers per hour")
             {
                 Speed *= 0.277778; // 1 km/h = 0.277778 m/s
             }
-            else if (SpeedUnit == "miles per hour")
+            else if (SpeedUnit == "Miles per hour")
             {
                 Speed *= 0.44704; // 1 mph = 0.44704 m/s
             }
-            else if (SpeedUnit == "feet per second")
+            else if (SpeedUnit == "Feet per second")
             {
                 Speed *= 0.3048; // 1 ft/s = 0.3048 m/s
             }
+            SpeedUnit = "Meters per Seconds";
+        
         }
 
         public void CalculateSpeed()
         {
             Speed = Distance / Time;
+            SpeedUnit = "Meters per Seconds";
         }
 
         public void CalculateDis()
         {
             Distance = Speed * Time;
+            DisUnit = "Meters";
         }
 
         public void CalculateTime()
         {
             Time = Distance / Speed;
+            TimeUnit = "Seconds";
         }
     }
-
-    // Define the DbContext
-    public class ConversionModelDbContext : DbContext
-    {
-        public DbSet<ConversionModel> ConversionModels { get; set; }
-
-        public ConversionModelDbContext(DbContextOptions<ConversionModelDbContext> options)
-            : base(options)
-        {
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("YourConnectionString");
-            }
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<ConversionModel>(entity =>
-            {
-                entity.HasKey(e => e.ProblemID);
-                entity.Property(e => e.TimeUnit).IsRequired();
-                entity.Property(e => e.DisUnit).IsRequired();
-                entity.Property(e => e.SpeedUnit).IsRequired();
-            });
-        }
-    }
-
-    // Example service or repository class that interacts with the DbContext
-    public class ConversionService
-    {
-        private readonly ConversionModelDbContext _context;
-
-        public ConversionService(ConversionModelDbContext context)
-        {
-            _context = context;
-        }
-
-        public List<ConversionModel> GetAllProblems()
-        {
-            return _context.ConversionModels.ToList();
-        }
-    }
-
 }
+

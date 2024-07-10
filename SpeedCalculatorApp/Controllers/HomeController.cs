@@ -1,7 +1,6 @@
 using System.Diagnostics;
 using Forms.Models;
 using Microsoft.AspNetCore.Mvc;
-using SpeedCalculatorApp.Models;
 using Microsoft.Extensions.Logging;
 using System.Linq;
 
@@ -36,45 +35,36 @@ namespace SpeedCalculatorApp.Controllers
 
         public IActionResult Result(ConversionModel problem)
         {
-            UpdateDb(problem);
             return View(problem);
         }
 
         public IActionResult Dis(ConversionModel problem)
         {
-            UpdateDb(problem);
             return View(problem);
         }
 
         public IActionResult Time(ConversionModel problem)
         {
-            UpdateDb(problem);
             return View(problem);
         }
 
         public IActionResult KineticEnergy(ConversionModel problem)
         {
-            UpdateDb(problem);
             return View(problem);
         }
 
         public IActionResult KEResult(ConversionModel problem)
         {
-            UpdateDb(problem);
             return View(problem);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new Models.ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public void UpdateDb(ConversionModel problem)
-        {
-            _context.ConversionModels.Add(problem);
-            _context.SaveChanges();
-        }
+        
     }
 }
 
